@@ -1,0 +1,28 @@
+<div class="container">
+  <a href="<%=new_article_path%>"><button type="button" class="btn btn-success">Crete New</button></a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article|%>
+      <tr>
+        <th scope="row"><%= article.id%></th>
+        <td><%= article.title%></td>
+        <td><%= article.description%></td>
+        <td class="flex">
+          <a href="<%=edit_article_path(article)%>"><button type="button" class="btn btn-primary">Edit</button></a>
+          <a href="<%=article_path(article)%>"><button type="button" class="btn btn-success">Show</button></a>
+          <%=link_to "Delete", article_path(article),method: :delete, data: {confirm: "Anda yakin ingin menghapus artikel ini?"},class:"btn btn-danger"%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+</div>
