@@ -36,7 +36,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-
+    i@article.view + 1
+    @article.update()
   end
 
   def destroy
